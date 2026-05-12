@@ -1,0 +1,6 @@
+node_modules/
+package-lock.json
+*.db
+*.db-shm
+*.db-wal
+prompt-state.json

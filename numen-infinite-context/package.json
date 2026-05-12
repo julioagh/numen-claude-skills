@@ -1,0 +1,20 @@
+{
+  "name": "secure-infinite-context",
+  "version": "1.0.0",
+  "description": "Infinite context for Claude Code — no web server, no external API calls",
+  "type": "module",
+  "bin": {
+    "ic": "./src/cli.js"
+  },
+  "scripts": {
+    "install-hooks": "node src/cli.js install",
+    "uninstall-hooks": "node src/cli.js uninstall"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "MIT"
+}
