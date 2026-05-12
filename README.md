@@ -34,7 +34,7 @@ Download [`numen-humanizer.skill`](./releases/numen-humanizer.skill) and install
 
 #### Source
 
-The skill source is in [`numen-humanizer/SKILL.md`](./numen-humanizer/SKILL.md).
+The skill source is in [`skills/numen-humanizer/SKILL.md`](./skills/numen-humanizer/SKILL.md).
 
 ---
 
@@ -58,7 +58,17 @@ Download [`numen-audit.skill`](./releases/numen-audit.skill) and install via Cla
 
 #### Source
 
-The skill source is in [`numen-audit/SKILL.md`](./numen-audit/SKILL.md).
+The skill source is in [`skills/numen-audit/SKILL.md`](./skills/numen-audit/SKILL.md).
+
+---
+
+## Plugins
+
+### numen-infinite-context
+
+Hook-based plugin that preserves conversation context across long sessions using local SQLite storage. No external API calls.
+
+**Source:** [`plugins/numen-infinite-context/`](./plugins/numen-infinite-context/)
 
 ---
 
