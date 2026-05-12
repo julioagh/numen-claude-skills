@@ -22,23 +22,25 @@ function groupIntoTurns(messages) {
   let current = null;
 
   for (const msg of messages) {
-    const role = msg.role || msg.type;
+    // Claude Code JSONL wraps the actual message under msg.message
+    const inner = msg.message || msg;
+    const role = inner.role || msg.type;
     if (role === 'system') continue;
 
     if (role === 'user') {
       if (current) turns.push(current);
       current = {
-        userMessage: extractUserMessage(msg),
+        userMessage: extractUserMessage(inner),
         assistantMessages: [],
         allToolCalls: [],
         allToolResults: [],
       };
     } else if (role === 'assistant' && current) {
-      const { text, thinking, toolCalls } = extractAssistantMessage(msg);
+      const { text, thinking, toolCalls } = extractAssistantMessage(inner);
       if (text || thinking) current.assistantMessages.push({ text, thinking });
       current.allToolCalls.push(...toolCalls);
     } else if ((role === 'tool' || role === 'tool_result') && current) {
-      current.allToolResults.push(extractToolResult(msg));
+      current.allToolResults.push(extractToolResult(inner));
     }
   }
 
